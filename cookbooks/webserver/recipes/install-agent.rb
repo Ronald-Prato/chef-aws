@@ -6,14 +6,14 @@
 
 package 'unzip'
 
-directory '/home/ec2-user/agent' do
-  owner 'ec2-user'
-  group 'ec2-user'
+directory '/home/deploy/agent' do
+  owner 'deploy'
+  group 'deploy'
   mode '0755'
   action :create
 end
 
-template '/home/ec2-user/agent/alarm-config.json' do
+template '/home/deploy/agent/alarm-config.json' do
   source 'config.json.erb'
 end
 
