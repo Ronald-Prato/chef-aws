@@ -6,19 +6,19 @@
 
 package 'unzip'
 
-directory '/home/vagrant/agent' do
-  owner 'vagrant'
-  group 'vagrant'
+directory '/home/ec2-user/agent' do
+  owner 'ec2-user'
+  group 'ec2-user'
   mode '0755'
   action :create
 end
 
-template '/home/vagrant/agent/alarm-config.json' do
+template '/home/ec2-user/agent/alarm-config.json' do
   source 'config.json.erb'
 end
 
 bash 'Install Agent' do 
-  cwd '/home/vagrant'
+  cwd '/home/ec2-user'
   code <<-EOH
     cd agent
     wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
